@@ -1,0 +1,30 @@
+CREATE DATABASE BestFoodInTown
+
+CREATE TABLE LocalFood
+(
+RestaurantName varchar(50),
+UsState varchar(2),
+City char(15),
+)
+SELECT *
+FROM [dbo].[LocalFood]
+
+INSERT INTO [dbo].[LocalFood](RestaurantName, UsState, City)
+VALUES ('Waffle House', 'GA', 'Atlanta')
+INSERT INTO [dbo].[LocalFood]
+VALUES ('Dennys', 'NJ', 'Cherry Hill')
+ALTER TABLE [dbo].[LocalFood] DROP COLUMN [City]
+
+INSERT INTO [dbo].[LocalFood](RestaurantName, UsState)
+SELECT 'Supremos', 'NJ'
+UNION ALL
+SELECT 'SOL SAZON', 'NJ'
+UNION ALL
+SELECT 'VILLA ROSA PIZZERIA', 'NJ'
+
+SELECT [RestaurantName]
+FROM [dbo].[LocalFood]
+WHERE UsState='NJ'
+
+
+Select * from [dbo].[LocalFood]
